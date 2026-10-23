@@ -51,16 +51,8 @@ app.post('/api/analyze-demo', async (req, res) => {
       reviewer: { status: 'demo', message: 'Using preloaded demo data' },
     };
 
-    // Demo financial snapshot
-    const financialSnapshot = {
-      revenueGrowth: 0.15,
-      profitMargin: 0.12,
-      liquidityRatio: 1.8,
-      leverageRatio: 0.65,
-      reportingPeriod: 'FY 2024',
-      currency: 'USD',
-      isSynthetic: true,
-    };
+    // Demo financial snapshot - use quantitative agent for consistent generation
+    const financialSnapshot = quantitative.analyze('Demo Company Example');
 
     // Demo ML prediction (placeholder - will be replaced with real ML call)
     let mlPrediction = null;
@@ -98,7 +90,7 @@ app.post('/api/analyze-demo', async (req, res) => {
       };
     }
 
-    // Demo research report
+    // Demo research report - dynamically reflect the financial metrics
     const researchReport = {
       mainFindings: [
         'This is a demonstration of the FinancePilot AI system',
@@ -106,12 +98,12 @@ app.post('/api/analyze-demo', async (req, res) => {
         'Demo mode uses preloaded data for testing without live APIs',
       ],
       positiveEvidence: [
-        'Strong revenue growth of 15% year-over-year',
-        'Healthy profit margin of 12%',
-        'Adequate liquidity ratio of 1.8',
+        `Revenue growth of ${(financialSnapshot.revenueGrowth * 100).toFixed(1)}% year-over-year`,
+        `Profit margin of ${(financialSnapshot.profitMargin * 100).toFixed(1)}%`,
+        `Liquidity ratio of ${financialSnapshot.liquidityRatio.toFixed(2)}`,
       ],
       negativeEvidence: [
-        'Moderate leverage ratio of 0.65',
+        `Leverage ratio of ${financialSnapshot.leverageRatio.toFixed(2)}`,
         'Market volatility presents risks',
       ],
       missingInformation: [
