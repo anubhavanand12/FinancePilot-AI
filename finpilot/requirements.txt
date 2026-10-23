@@ -1,0 +1,26 @@
+# FinPilot AI – Fetch.ai uagents multi-agent system
+# Install with: pip install -r requirements.txt
+
+# ── Fetch.ai Agent Framework ──────────────────────────────────────────────────
+uagents==0.13.0
+
+# ── Market Data ───────────────────────────────────────────────────────────────
+yfinance>=0.2.40
+
+# ── Data Processing ───────────────────────────────────────────────────────────
+pandas>=2.2.0
+numpy>=1.26.0
+
+# ── Schema Validation ─────────────────────────────────────────────────────────
+pydantic>=2.6.0
+
+# ── Environment Management ────────────────────────────────────────────────────
+python-dotenv>=1.0.0
+
+# ── HTTP (transitive, pinned for stability) ───────────────────────────────────
+requests>=2.31.0
+
+# ── LLM (Phase 2 – install now so the env is ready) ──────────────────────────
+openai>=1.30.0
+langchain>=0.2.0
+langchain-openai>=0.1.0
